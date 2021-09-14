@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy-individual:
-    name: "Deploy individual stack"
+    name: "Deploy individual (per-developer) stack"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -14,5 +14,7 @@ jobs:
 
       - name: Echo the pushing user
         run: |
-          echo "${{ toJson(github.event.pusher) }}"
+          echo "$GITHUB_USERNAME"
+        env:
+          GITHUB_USERNAME: ${{ github.event.pusher.name }}
         shell: bash
