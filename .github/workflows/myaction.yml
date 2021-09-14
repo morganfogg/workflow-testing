@@ -16,5 +16,5 @@ jobs:
         run: |
           echo "$GITHUB_USERNAME"
         env:
-          GITHUB_USERNAME: ${{ github.event.pusher.name }}
+          GITHUB_USERNAME: ${{ github.event.pusher.name }}-developer
         shell: bash
