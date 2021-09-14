@@ -14,5 +14,5 @@ jobs:
 
       - name: Echo the pushing user
         run: |
-          echo ${{ toJson(github.event.commits) }}
+          echo ${{ toJson(github.event.pusher) }}
         shell: bash
