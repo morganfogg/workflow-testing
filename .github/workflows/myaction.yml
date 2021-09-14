@@ -1,0 +1,18 @@
+name: "Deploy to development stack"
+on:
+  push:
+    branches-ignore:
+      - master
+
+jobs:
+  deploy-individual:
+    name: "Deploy individual stack"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Echo the pushing user
+        run: |
+          echo ${{ toJson(github.event.commits) }}
+        shell: bash
