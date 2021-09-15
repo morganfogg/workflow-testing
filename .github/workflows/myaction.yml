@@ -3,11 +3,14 @@ on:
   push:
     branches-ignore:
       - master
+    branches:
+      - 'feature/*'
 
 jobs:
   deploy-individual:
     name: "Deploy individual (per-developer) stack"
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -16,5 +19,5 @@ jobs:
         run: |
           echo "$GITHUB_USERNAME"
         env:
-          GITHUB_USERNAME: ${{ github.event.pusher.name }}-developer
+          ENVIRONMENT: dev-${{ github.event.pusher.name }}
         shell: bash
