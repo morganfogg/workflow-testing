@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - 'feature/**'
+  workflow_dispatch:
+    inputs:
+      source_branch:
+        description: 'Source branch'
 
 jobs:
   deploy-individual:
@@ -15,7 +19,7 @@ jobs:
 
       - name: Echo the pushing user
         run: |
-          echo "$GITHUB_USERNAME"
+          echo "$ENVIRONMENT"
         env:
           ENVIRONMENT: dev-${{ github.event.pusher.name }}
         shell: bash
