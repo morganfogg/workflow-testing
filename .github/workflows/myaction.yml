@@ -17,7 +17,7 @@ jobs:
 
       - name: Echo the pushing user
         run: |
-          echo "$HOTSWAP"
+          echo "$ssdflhalkasdjf"
         env:
           ENVIRONMENT: dev-${{ github.event.pusher.name || github.event.sender.login }}
           HOTSWAP: ${{ 1 == 1 }}
