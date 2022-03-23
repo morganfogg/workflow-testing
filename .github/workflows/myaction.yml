@@ -17,7 +17,8 @@ jobs:
 
       - name: Echo the pushing user
         run: |
-          echo "$ENVIRONMENT"
+          echo "$HOTSWAP"
         env:
           ENVIRONMENT: dev-${{ github.event.pusher.name || github.event.sender.login }}
+          HOTSWAP: ${{ 1 == 1 }}
         shell: bash
